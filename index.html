@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Warmth</title>
+        <!-- Linking Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <!-- Linking Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    </head>
+    <body>
+        <!-- Header / Navbar -->
+        <header>
+            <nav class="navbar section-content">
+                <a href="#" class="nav-logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <h2 class="logo-text">Warmth</h2>
+                </a>  
+                <ul class="nav-menu">
+                    <button id="menu-close-button" class="fas fa-times"></button>
+
+
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#product" class="nav-link">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                </ul>   
+                <button id="menu-open-button" class="fas fa-bars"></button>
+
+                <!-- Cart and Sign In Section -->
+        <div class="header-right">
+                <!-- Cart Icon -->
+        <button class="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
+
+        <!-- Full-Page Shopping Cart -->
+<div id="shopping-cart-page" class="shopping-cart-page hidden">
+    <h1 class="cart-title">Shopping Cart</h1>
+    <button id="close-cart-button" class="close-cart-btn">&times;</button>
+    <div class="cart-container">
+        <!-- Cart Items Section -->
+        <div class="cart-items-section">
+            <div class="cart-header">
+                <span>Product</span>
+                <span>Price</span>
+                <span>Quantity</span>
+                <span>Total</span>
+                <span>Action</span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Dynamic cart items will go here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Summary Section -->
+    <div class="order-summary-section">
+        <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="summary-subtotal">₱0</span>
+        </div>
+        <div class="summary-row">
+            <span>Shipping:</span>
+            <span id="summary-shipping">₱36</span>
+        </div>
+        <hr />
+        <div class="summary-total">
+            <span>Total:</span>
+            <span id="summary-total">₱36</span>
+        </div>
+        <button id="checkout-button" class="checkout-button">Proceed to Checkout</button>
+    </div>
+</div>
+
+<!-- Payment Modal (Initially Hidden) -->
+<div id="payment-modal" class="payment-modal">
+    <div class="payment-content">
+        <h2>Select Payment Method</h2>
+        <button class="payment-option gcash-option">Gcash</button>
+        <div class="qr-code">
+            <p>Scan to Pay with GCash:</p>
+            <img src="qr.png" alt="GCash QR Code">
+        </div>
+        <button class="payment-option cod-option">Cash on Delivery</button>
+        <button id="close-payment" class="payment-option close-payment">Close</button>
+    </div>
+</div>
+
+        <!-- Sign In Button -->
+        <button class="sign-in-btn">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+            </nav>
+        </header>    
+       
+        <!-- Sign-In Section (Full Page Overlay) -->
+<div class="sign-in-section">
+    <div class="sign-in-container">
+        <button class="close-btn">&times;</button>
+       
+        <h2>Sign In</h2>
+       
+        <!-- Sign-In Form -->
+        <form id="sign-in-form">
+            <!-- Email Input -->
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+           
+            <!-- Password Input -->
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+           
+            <!-- Privacy Statement -->
+            <div class="privacy-container">
+                <input type="checkbox" id="privacy" required>
+                <label for="privacy">I agree to the <a href="#" class="privacy-link" onclick="showPrivacyStatement()">Privacy Policy</a></label>
+            </div>
+           
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+    </div>
+</div>
+
+<!-- Privacy Section -->
+<div class="privacy-modal" id="privacy">
+    <div class="privacy-modal-content">
+        <span class="close-privacy">&times;</span>
+        <h3>Privacy Policy</h3>
+        <p>
+            At Warmth, we are committed to protecting your privacy. We do not collect any personal
+            information without your consent. Any information collected will be used only for the purpose of
+            improving your experience on our platform.
+        </p>
+        <p>
+            We will never share your personal information with third parties without your explicit consent.
+            By agreeing to this policy, you give us permission to store and use your data in accordance with
+            our terms and conditions.
+        </p>
+        <button class="accept-privacy">I Agree</button>
+    </div>
+</div>
+           
+            <!-- Home section -->
+            <section class="hero-section" id="home">
+                <div class="section-content">
+                    <div class="hero-details">
+                        <h2 class="title">Sand Candle</h2>
+                        <p class="description">WELCOME TO OUR LIGHT PARADISE.</p>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu section -->
+<section class="menu-section" id="product">
+    <h2 class="section-title">Product</h2>
+    <div class="section-content">
+        <div class="slider-container swiper">
+            <div class="swiper-wrapper">
+                <!-- Product 1 -->
+                <div class="menu-item swiper-slide" onclick="showProductDetails('product1')">
+                    <div class="product-card">
+                        <img src="seta.png" alt="Product 1" class="menu-image" data-id="product1">
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="menu-item swiper-slide" onclick="showProductDetails('product2')">
+                    <div class="product-card">
+                        <img src="setb.png" alt="Product 2" class="menu-image" data-id="product2">
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="menu-item swiper-slide" onclick="showProductDetails('product3')">
+                    <div class="product-card">
+                        <img src="set c.png" alt="Product 3" class="menu-image" data-id="product3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Modal Structure -->
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <!-- Modal Left Section -->
+        <div class="modal-left">
+            <img id="modal-img" src="" alt="Product Image">
+        </div>
+
+        <!-- Modal Right Section -->
+        <div class="modal-right">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title">Product Title</h3>
+            <div class="price">
+                <span id="modal-sale-price" class="sale-price"></span>
+                <span id="modal-original-price" class="original-price"></span>
+            </div>
+            <p class="description" id="modal-description">Product Description</p>
+
+            <!-- Quantity and Add to Cart Section -->
+            <div class="top-actions">
+                <div class="quantity">
+                    <button onclick="decreaseQuantity()">-</button>
+                    <span id="quantity-value">1</span>
+                    <button onclick="increaseQuantity()">+</button>
+                </div>
+                <button class="cta-btn add-to-cart" onclick="addToCart()">Add to Cart</button>
+            </div>
+
+            <!-- Buy Now Button -->
+            <button class="cta-btn buy-now" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal (Initially Hidden) -->
+<div id="payment-modal" class="payment-modal">
+    <div class="payment-content">
+        <h2>Select Payment Method</h2>
+        <button class="payment-option gcash-option">Gcash</button>
+        <div class="qr-code">
+            <p>Scan to Pay with GCash:</p>
+            <img src="qr.png" alt="GCash QR Code">
+        </div>
+        <button class="payment-option cod-option">Cash on Delivery</button>
+        <button id="close-payment" class="payment-option close-payment">Close</button>
+    </div>
+</div>
+
+            <!-- Contact Section -->
+<section id="contact" class="contact-us">
+    <div class="contact-header">
+        <h1 class="section-title">Contact Us</h1>
+        <p>We'd love to hear from you!</p>
+    </div>
+
+    <div class="contact-content">
+        <!-- Left Side: Map -->
+        <div class="map-section">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- Get in Touch Section -->
+        <div class="get-in-touch">
+            <h2>Find us here.</h2>
+            <p>If you have any questions, feel free to reach out to us.</p>
+        </div>
+
+        <!-- Right Side: Contact Info and Form -->
+        <div class="contact-info">
+            <!-- Contact Information -->
+            <div class="contact-details">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:warmthmnl@gmail.com">warmthmnl@gmail.com</a></li>
+                    <li><strong>Phone:</strong> 09062351083</li>
+                    <li><strong>Address:</strong> Sparkle Wash at 407 Quirino Ave, Don Galo, Parañaque, Metro Manila.</li>
+                </ul>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <!-- Updated form with Formspree action -->
+                <form action="https://formspree.io/f/xqaebapl" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+           <!-- About Section -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-image-wrapper">
+                <img src="glass.png" alt="About" class="about-image">
+            </div>
+            <div class="about-text">
+                <p>WARMTH is a sand candle business that offers handmade products with creativity, customizable designs, a personal touch, and decorative appeal. Our sand-based candles provide unique textures and colors, allowing customers to personalize each piece into a work of art.</p>
+            </div>
+        </div>
+
+        <div class="about-details">
+            <div class="about-item">
+                <h3>Information</h3>
+                <p>We specialize in handcrafted sand candles, each designed with care and attention to detail. Our goal is to provide unique and artistic candles that suit various preferences and spaces.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="about-item">
+                <h3>Vision</h3>
+                <p>To be a leading provider of artistic and customizable sand candles, bringing warmth and creativity into every home.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="about-item">
+                <h3>Mission</h3>
+                <p>Our mission is to craft high-quality sand candles that blend artistry with functionality, offering customers an opportunity to personalize their spaces with beautifully designed candles.</p>
+                </div>
+            </div>
+
+            <!-- About Social Media -->
+<div class="social-link-list">
+    <a href="https://web.facebook.com/profile.php?id=61572554457831" class="social-link">
+        <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/warmth_mnl/" class="social-link">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+</div>
+</section>
+
+        <!-- Chatbot Trigger Button (Icon) -->
+<button id="chatbot-toggle" title="Chat with us">
+    <i class="fa-regular fa-comment"></i>
+</button>
+
+<!-- Chatbot Container -->
+<div id="chatbot">
+    <div id="chatbot-header">
+        <h3 class="title">Seereach</h3>
+        <button id="chatbot-close">X</button> <!-- Close Button -->
+    </div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <textarea id="chatbot-textarea" placeholder="Ask something..."></textarea>
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="footer-content">
+        <!-- Footer Logo and Company Info -->
+        <div class="footer-logo">
+            <img src="logo.png" alt="Logo" class="footer-logo-img">
+            <h2 class="footer-logo-text">Warmth</h2>
+            <p>&copy; 2024 Warmth. All Rights Reserved.</p>
+        </div>
+
+        <!-- Footer Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+
+                <li><a href="#home">Home</a></li>
+                <li><a href="#product">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+        </div>
+ 
+        <!-- Footer Social Media -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://web.facebook.com/profile.php?id=61572554457831" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/warmth_mnl/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer Bottom (Legal & Contact) -->
+    <div class="footer-bottom">
+        <p>Contact us: <a href="mailto:info@warmth.com">info@warmth.com</a></p>
+        <p>Powered by <a href="#">Warmth Technologies</a></p>
+    </div>
+</footer>
+
+        <script>
+   // JavaScript Functionality
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbot = document.getElementById('chatbot');
+const chatbotMessages = document.getElementById('chatbot-messages');
+const chatbotTextarea = document.getElementById('chatbot-textarea');
+const chatbotSend = document.getElementById('chatbot-send');
+
+// Keywords and responses mapping
+const keywordResponses = {
+    "hi": "Hello, How can I assist you today?",
+    "sand": "A sand candle is a unique decorative item made from natural sand and a candle wick. It offers a warm, rustic ambiance to any space and is perfect for adding a touch of tranquility to your home.",
+    "colors": "Our sand candles come in a variety of beautiful colors, including white,green, yellow, pink,orange,red,black, and blue. We also offer custom color options upon request.",
+    "time": "The burn time of your sand candle will vary depending on its size and how you care for it.",  
+    "scent": "Yes, many of our sand candles come with a subtle scent, such as lavender, vanilla, or eucalyptus. We also offer unscented options for those who prefer a more natural ambiance.",
+    "candle": "Sand candles bring a calming, rustic feel to any room with their soft light and natural texture.",
+    "order": "Yes, we offer bulk orders for events such as weddings, corporate gifts, or special occasions. Contact us to discuss your event and we’ll create the perfect sand candle collection for you.",
+    "outdoors": "Yes! Our sand candles can be used outdoors, but we recommend keeping them away from direct wind or rain to ensure they burn smoothly and last longer.",
+    "gift": "Yes, we offer elegant gift packaging options that make our sand candles perfect for gifting. Whether it's for a birthday, anniversary, or any special occasion, we can wrap it beautifully for you.",
+    "first-time": "Welcome!  We're thrilled to have you. To get started, browse our collection of sand candles. If you have any questions, don't hesitate to use the chat feature or contact us directly.",
+    "bulk": "We offer bulk purchasing options for events and corporate gifting. Please contact us to discuss your requirements and receive a customized quote.",
+    "essential oils": "We offer green tea, rose, yugali, jasmine and lavender.",
+    "offer": "We offer green tea, rose, yugali, jasmine and lavender.",
+    "payment": "For our payment options, we have Cash On Delivery and Gcash",
+    "discounts": "Yes! Stay updated to our website for our seasonal discounts and promotions.",
+    "receive": "Shipping times vary depending on your location, but you can expect to receive your order within 1-2 business days.",
+    "arrived": "First, check the estimated delivery date provided in your order confirmation email. If your order hasn't arrived by the estimated date, please contact us and we'll be happy to help. We can check the status of your order with the shipping company and provide you with an update.",
+    "damaged":"We're sorry to hear that your candle arrived damaged! Please contact us immediately and provide us with your order number, a description of the damage, and a photo of the damaged candle. We will be happy to arrange a replacement for you.",
+    "damage":"We're sorry to hear that your candle arrived damaged! Please contact us immediately and provide us with your order number, a description of the damage, and a photo of the damaged candle. We will be happy to arrange a replacement for you.",
+    "ship": "Please contact us immediately if you need to change your shipping address.  We'll do our best to accommodate your request, but it may not always be possible once the order has shipped.  It's important to verify your shipping information before confirming your order.",
+    "replacement": "We're sorry to hear that your candle arrived damaged! Please contact us immediately and provide us with your order number, a description of the damage, and a photo of the damaged candle. We will be happy to arrange a replacement for you.",
+};
+
+// Toggle Chatbot visibility
+chatbotToggle.addEventListener('click', () => {
+    chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Function to send message and display response
+const sendMessage = () => {
+    const userMessage = chatbotTextarea.value.trim().toLowerCase(); // Convert input to lowercase for easy comparison
+    if (userMessage) {
+        // Display user message
+        const userMsgElem = document.createElement('div');
+        userMsgElem.textContent = userMessage;
+        chatbotMessages.appendChild(userMsgElem);
+
+        // Check for keywords in user input and respond accordingly
+        const response = getBotResponse(userMessage);
+
+        // Display bot response after a short delay
+        setTimeout(() => {
+            const botMsgElem = document.createElement('div');
+            botMsgElem.textContent = response;
+            chatbotMessages.appendChild(botMsgElem);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;  // Scroll to bottom
+        }, 500);
+
+        // Clear textarea
+        chatbotTextarea.value = '';
+    }
+};
+
+// Function to determine the bot response based on keywords in user input
+const getBotResponse = (userMessage) => {
+    // Loop through keyword responses and check if the user's message contains any of the keywords
+    for (const keyword in keywordResponses) {
+        if (userMessage.includes(keyword)) {
+            return keywordResponses[keyword];
+        }
+    }
+
+    // If no match is found, return a default response
+    return "I'm not sure how to respond to that. Can you rephrase?";
+};
+
+// Send message when clicking the send button
+chatbotSend.addEventListener('click', sendMessage);
+
+// Send message when pressing "Enter" key (without Shift key)
+chatbotTextarea.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();  // Prevent adding a newline
+        sendMessage();
+    }
+});
+
+// Close the chatbot window
+document.getElementById('chatbot-close').addEventListener('click', () => {
+    chatbot.style.display = 'none';
+});
+
+    // Listen for form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        // Get form data
+        var formData = new FormData(event.target);
+
+        // Send email using EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+            .then(function(response) {
+                alert('Message sent successfully!');
+            }, function(error) {
+                alert('Failed to send message. Please try again later.');
+            });
+    });
+
+     // Get the mobile menu button and the menu itself
+     const mobileMenuButton = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Toggle the mobile menu when the button is clicked
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+   
+    </script>
+    <script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.slider-container', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        speed: 600,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    console.log('Swiper initialized:', swiper);
+});
+    </script>
+
+        <!-- Linking Swiper script -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Linking custom script -->
+        <script src="script.js"></script>
+    </body>
+    </html

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Linking Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .login-section {
+            height: 100vh;
+            background-image: url('your-background-image.jpg'); /* Replace with your background image */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            color: white;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #FF1493;
+        }
+
+        .login-form .privacy-statement {
+            font-size: 12px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .login-form .privacy-statement a {
+            color: #FF69B4;
+        }
+
+        .g-recaptcha {
+            margin: 20px 0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-form">
+            <h2>Sign In</h2>
+            <form id="login-form" method="POST" action="your-login-endpoint">
+                <!-- Email Input -->
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <!-- Password Input -->
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <!-- reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+
+                <!-- Privacy Statement -->
+                <div class="privacy-statement">
+                    By signing in, you agree to our <a href="#">Privacy Policy</a>.
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Log In</button>
+
+                <!-- Error Message -->
+                <div id="error-message" class="error-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Optional: You can include a JavaScript file to handle form submission, CAPTCHA validation, and errors -->
+    <script>
+        // Form Validation
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Check if CAPTCHA is verified
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                document.getElementById('error-message').textContent = "Please verify the CAPTCHA.";
+                return;
+            }
+
+            // If CAPTCHA is verified, you can submit the form
+            // In real-world applications, you should validate the form on the server side as well
+            document.getElementById('error-message').textContent = "";
+
+            // Example: Handle form submission with fetch
+            const formData = new FormData(this);
+            fetch('your-login-endpoint', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = "dashboard.html"; // Redirect to the dashboard or success page
+                } else {
+                    document.getElementById('error-message').textContent = data.error || "Login failed.";
+                }
+            })
+            .catch(error => {
+                document.getElementById('error-message').textContent = "An error occurred. Please try again later.";
+            });
+        });
+    </script>
+
+</body>
+</html>

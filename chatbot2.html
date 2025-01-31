@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #chatbot-header {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #chatbot-messages {
+      height: 200px;
+      overflow-y: auto;
+      padding: 10px;
+      background: #f9f9f9;
+    }
+
+    #chatbot-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #chatbot-input textarea {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      resize: none;
+    }
+
+    #chatbot-input button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <!-- Chatbot Trigger Button -->
+    <button id="chatbot-toggle">Chat</button>
+  
+    <!-- Chatbot Container -->
+    <div id="chatbot">
+      <div id="chatbot-header">Chatbot</div>
+      <div id="chatbot-messages"></div>
+      <div id="chatbot-input">
+        <textarea id="chatbot-textarea" placeholder="Type a message..."></textarea>
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+  
+    <script>
+      // JavaScript Functionality
+      const chatbotToggle = document.getElementById('chatbot-toggle');
+      const chatbot = document.getElementById('chatbot');
+      const chatbotMessages = document.getElementById('chatbot-messages');
+      const chatbotTextarea = document.getElementById('chatbot-textarea');
+      const chatbotSend = document.getElementById('chatbot-send');
+  
+      // Toggle Chatbot
+      chatbotToggle.addEventListener('click', () => {
+        chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+      });
+  
+      // Send Message
+      chatbotSend.addEventListener('click', () => {
+        const userMessage = chatbotTextarea.value.trim();
+        if (userMessage) {
+          // Display user message
+          const userMsgElem = document.createElement('div');
+          userMsgElem.style.textAlign = 'right';
+          userMsgElem.textContent = userMessage;
+          chatbotMessages.appendChild(userMsgElem);
+  
+          // Display bot response
+          setTimeout(() => {
+            const botMsgElem = document.createElement('div');
+            botMsgElem.textContent = "I'm here to help!";
+            chatbotMessages.appendChild(botMsgElem);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+          }, 500);
+  
+          chatbotTextarea.value = '';
+        }
+      });
+    </script>
+  </body>
+</html>

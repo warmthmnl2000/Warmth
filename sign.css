@@ -1,0 +1,74 @@
+/* Importing Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Ballet:opsz@16..72&family=Birthstone&family=Birthstone+Bounce:wght@400;500&family=Caramel&family=Carattere&family=Cookie&family=Cormorant+Upright:wght@300;400;500;600;700&family=Courgette&family=Croissant+One&family=Dancing+Script:wght@400..700&family=Felipa&family=Fleur+De+Leah&family=Glass+Antiqua&family=Great+Vibes&family=Gruppo&family=Hurricane&family=Italianno&family=Kings&family=Love+Light&family=Luxurious+Script&family=Mea+Culpa&family=MonteCarlo&family=Mr+De+Haviland&family=Mrs+Saint+Delafield&family=Ms+Madi&family=My+Soul&family=Niconne&family=Parisienne&family=Passions+Conflict&family=Pinyon+Script&family=Playball&family=Playwrite+DE+LA:wght@100..400&family=Playwrite+IN:wght@100..400&family=Playwrite+TZ+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Praise&family=Rochester&family=Satisfy&family=Style+Script&family=Suravaram&family=Tangerine:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Waterfall&family=WindSong:wght@400;500&family=Yesteryear&family=Yuji+Syuku&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .signin-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .signin-content {
+    background: white;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+  }
+  
+  .signin-header h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .input-group i {
+    margin-right: 10px;
+  }
+  
+  .privacy-section {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5c8d; /* Blush color */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff4176;
+  }
+  
+  a {
+    color: #ff5c8d;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
