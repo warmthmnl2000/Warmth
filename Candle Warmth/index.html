@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Warmth</title>
+        <!-- Linking Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <!-- Linking Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    </head>
+    <body>
+       
+        <!-- Header / Navbar -->
+<header>
+    <nav class="navbar section-content">
+        <a href="#" class="nav-logo">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <h2 class="logo-text">Warmth</h2>
+        </a>  
+        <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+            <li class="nav-item">
+                <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#product" class="nav-link">Product</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+            </li>
+        </ul>  
+        <div class="nav-icons">
+            <a href="#cart" class="nav-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i> <!-- Shopping Cart Icon -->
+                <span class="cart-item-count">0</span> <!-- Item count in cart -->
+            </a>
+            <a href="#sign-in" class="nav-icon" id="sign-in-icon">
+                <i class="fas fa-user"></i> <!-- Sign-in Icon -->
+            </a>
+        </div>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+</header>
+
+<!-- Sign Up / Sign In Section -->
+<div class="auth-container" id="auth-container">
+    <!-- Sign Up Form -->
+    <div class="auth-form" id="sign-up-form">
+        <!-- Close Button Inside the Form -->
+        <button class="close-btn" id="close-btn">&times;</button>
+       
+        <h2>Sign Up</h2>
+        <form id="sign-up-form-actual">
+            <input type="text" id="name" placeholder="Name" required>
+            <span id="name-error" class="error-message" style="display:none;">Name is required</span>
+
+            <input type="email" id="email" placeholder="Email" required>
+            <span id="email-error" class="error-message" style="display:none;">Email is required</span>
+
+            <input type="password" id="password" placeholder="Password" required>
+            <span id="password-error" class="error-message" style="display:none;">Password is required</span>
+
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <span id="confirm-password-error" class="error-message" style="display:none;">Confirm Password is required</span>
+
+            <button type="submit" id="sign-up-btn">Sign Up</button>
+        </form>
+        <div class="privacy-section">
+            <input type="checkbox" id="privacy-agree-checkbox">
+            <p class="privacy-statement">
+                By signing up, you agree to our <a href="#" id="privacy-policy-link">Privacy Policy</a>.
+            </p>
+        </div>
+        <p>Already have an account? <a href="#" id="sign-in-link">Sign In</a></p>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="auth-form" id="sign-in-form" style="display: none;">
+        <!-- Close Button Inside the Form -->
+        <button class="close-btn" id="close-btn-sign-in">&times;</button>
+       
+        <h2>Sign In</h2>
+        <form id="sign-in-form-actual">
+            <input type="email" id="sign-in-email" placeholder="Email" required>
+            <span id="sign-in-email-error" class="error-message" style="display:none;">Email is required</span>
+
+            <input type="password" id="sign-in-password" placeholder="Password" required>
+            <span id="sign-in-password-error" class="error-message" style="display:none;">Password is required</span>
+
+            <button type="submit" id="sign-in-btn">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
+    </div>
+</div>
+
+<!-- Sign-in / Sign-up Icon in Navbar -->
+<a href="javascript:void(0);" class="nav-icon" id="sign-in-icon">
+    <i class="fas fa-user"></i>
+</a>
+
+<!-- Privacy Policy Pop-up -->
+<div class="privacy-popup" id="privacy-popup">
+    <div class="privacy-content">
+        <button class="close-btn" id="close-privacy-btn">&times;</button>
+        <h2>Privacy Policy</h2>
+        <p>Welcome to Warmth. Your privacy matters to us. This Privacy Policy explains how we handle your information responsibly and securely.</p>
+        <h3>1. Information We Collect</h3>
+        <p>We collect personal details such as your name, email, and password to enhance our services.</p>
+        <h3>2. How We Use Your Data</h3>
+        <p>Your information helps us manage accounts, process transactions, and improve your experience.</p>
+        <h3>3. Security & Protection</h3>
+        <p>We implement strict security measures, including encryption, to keep your data safe.</p>
+        <h3>4. Your Rights</h3>
+        <p>You can access, update, or request deletion of your personal information at any time.</p>
+    </div>
+</div>
+
+   <!-- Home section -->
+<section class="hero-section" id="home">
+    <div class="section-content">
+        <div class="hero-details">
+            <h2 class="title">Sand Candle</h2>
+            <p class="description">UNLEASH YOUR CREATIVITY.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Shopping Cart Container -->
+    <div id="cart-container" class="cart-container">
+        <div id="cart-modal" class="cart-modal">
+            <button id="cart-close-button" class="fas fa-times close-cart"></button>
+            <h3>Your Cart</h3>
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-summary">
+                <p><strong>Subtotal:</strong> ₱<span id="cart-subtotal">0</span></p>
+                <p><strong>Shipping:</strong> ₱<span id="cart-shipping">0</span></p>
+                <p><strong>Total:</strong> <span id="cart-total">0</span></p>
+                <button id="checkout-button" class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+<div id="checkout-modal" class="checkout-modal">
+    <button id="checkout-close-button" class="close-checkout">×</button>
+    <div class="checkout-container">
+        <h3 class="checkout-title">Checkout</h3>
+        <div id="checkout-items" class="checkout-items">
+            <!-- Checkout items will be added here dynamically -->
+        </div>
+        <div class="checkout-box payment-info">
+            <div class="payment-options">
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment-method">
+                    <option value="COD">Cash on Delivery (COD)</option>
+                    <option value="GCash">GCash</option>
+                </select>
+            </div>
+            <div id="gcash-qr" class="gcash-qr" style="display: none;">
+                <img src="qr.jpg" alt="GCash QR" />
+            </div>
+        </div>
+        <div class="location-selector">
+            <label for="location">Select Your Location:</label>
+            <select id="location">
+                <option value="Select">Select</option>
+                <option value="Antipolo">Antipolo</option>
+                <option value="Bacoor">Bacoor</option>
+                <option value="Batangas City">Batangas City</option>
+                <option value="Biñan">Biñan</option>
+                <option value="Cainta">Cainta</option>
+                <option value="Cebu City">Cebu City</option>
+                <option value="Dagupan">Dagupan</option>
+                <option value="Dasmariñas">Dasmariñas</option>
+                <option value="Davao City">Davao City</option>
+                <option value="General Trias">General Trias</option>
+                <option value="Imus">Imus</option>
+                <option value="Laoag">Laoag</option>
+                <option value="Las Piñas">Las Piñas</option>
+                <option value="Legazpi">Legazpi</option>
+                <option value="Lipa">Lipa</option>
+                <option value="Lucena">Lucena</option>
+                <option value="Mandaluyong">Mandaluyong</option>
+                <option value="Manila">Manila</option>
+                <option value="Parañaque">Parañaque</option>
+                <option value="Pasay">Pasay</option>
+                <option value="Pasig">Pasig</option>
+                <option value="Puerto Princesa">Puerto Princesa</option>
+                <option value="Quezon City">Quezon City</option>
+                <option value="San Fernando (La Union)">San Fernando (La Union)</option>
+                <option value="San Fernando (Pampanga)">San Fernando (Pampanga)</option>
+                <option value="San Pedro">San Pedro</option>
+                <option value="Santa Rosa">Santa Rosa</option>
+                <option value="Taguig">Taguig</option>
+                <option value="Tarlac City">Tarlac City</option>
+                <option value="Vigan">Vigan</option>
+            </select>
+        </div>
+
+            <div class="shipping-info">
+                <p><strong>Shipping Cost:</strong><span id="shipping-cost">0</span></p>
+            </div>
+        <div class="checkout-box checkout-summary">
+            <p><strong>Total Amount:</strong> <span id="checkout-total">0</span></p>
+            <button id="confirm-order" class="confirm-order">Confirm Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- Product Section -->
+<section class="product-section" id="product">
+    <h2 class="section-title typewriter">Our Products</h2>
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="set a.jpg" alt="Set A">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Set A</h3>
+                <p class="product-description">(6oz glass, 100g of sand candles and 1 essential oil)</p>
+                <span class="product-price"><s>₱200</s> ₱170</span>
+                <button class="add-to-cart" data-name="Set A" data-price="170" data-image="set a.jpg">Add to Cart</button>
+                <button class="buy-now" data-name="Set A" data-price="170" data-image="set a.jpg">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="set b.jpg" alt="Set B">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Set B</h3>
+                <p class="product-description">(9oz glass, 150g of sand candles and 1 essential oil)</p>
+                <span class="product-price"><s>₱267</s> ₱221</span>
+                <button class="add-to-cart" data-name="Set B" data-price="221" data-image="set b.jpg">Add to Cart</button>
+                <button class="buy-now" data-name="Set B" data-price="221" data-image="set b.jpg">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="set c.jpg" alt="Set C">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Set C</h3>
+                <p class="product-description">(13oz glass, 200g of sand candles and 1 essential oil)</p>
+                <span class="product-price"><s>₱299</s> ₱255</span>
+                <button class="add-to-cart" data-name="Set C" data-price="255" data-image="set c.jpg">Add to Cart</button>
+                <button class="buy-now" data-name="Set C" data-price="255" data-image="set c.jpg">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <h2 class="section-title typewriter">Contact Us</h2>
+    <div class="contact-container">
+       
+        <!-- Map Section -->
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123600.74627100125!2d120.8598240771131!3d14.512032250339546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce98613a4f3d%3A0x7488eeee14b4e225!2sSparklewash%20Express%20Laundry!5e0!3m2!1sen!2sph!4v1738581614590!5m2!1sen!2sph" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+       
+        <!-- Contact Form -->
+<div class="contact-form">
+    <h3>Send Us a Message</h3>
+    <form action="https://formspree.io/f/mqaelplr" method="POST">
+        <div class="input-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <span class="input-line"></span>
+        </div>
+        <div class="input-group">
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <span class="input-line"></span>
+        </div>
+        <div class="input-group">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <span class="input-line"></span>
+        </div>
+        <!-- Hidden field to specify the email recipient -->
+        <input type="hidden" name="_subject" value="New message from Contact Us Form">
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div class="info-row">
+                <div class="info-box">
+                    <h3>Phone</h3>
+                    <p><i class="fas fa-phone"></i> +63 906 235 1083</p>
+                </div>
+                <div class="info-box">
+                    <h3>Email</h3>
+                    <p><i class="fas fa-envelope"></i> warmthmnl@gmail.com</p>
+                </div>
+                <div class="info-box">
+                    <h3>Address</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sparkle Wash at 407 Quirino Ave, Don Galo, Parañaque, Metro Manila.</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61572554457831"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/warmth_mnl/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+<section class="about-section" id="about">
+    <h2 class="title">About Us</h2>
+    <div class="about-container">
+        <div class="about-video">
+            <video src="a1.mp4" autoplay loop muted playsinline class="about-video-content"></video>
+        </div>
+        <div class="about-text">
+            <p class="about-description">WARMTH is a sand candle business that offers handmade products with creativity, customizable designs, a personal touch, and decorative appeal. Our sand-based candles provide unique textures and colors, allowing customers to personalize each piece into a work of art.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61572554457831" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/warmth_mnl/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="mission-vision">
+        <div class="mission">
+            <h3>Mission</h3>
+            <p>Our mission is to craft high-quality sand candles that blend artistry with functionality, offering customers an opportunity to personalize their spaces with beautifully designed candles.</p>
+        </div>
+        <div class="vision">
+            <h3>Vision</h3>
+            <p>To be a leading provider of artistic and customizable sand candles, bringing warmth and creativity into every home.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer-section">
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="BW.mp4" type="video/mp4">
+    </video>
+
+    <div class="footer-content">
+        <!-- Footer Logo and Company Info -->
+        <div class="footer-logo">
+            <img src="logo.png" alt="Logo" class="footer-logo-img">
+            <h2 class="footer-logo-text">Warmth</h2>
+            <p>&copy; 2024 Warmth. All Rights Reserved.</p>
+        </div>
+
+        <!-- Footer Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#product">Our Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+ 
+        <!-- Footer Social Media -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61572554457831" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/warmth_mnl/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom (Legal & Contact) -->
+    <div class="footer-bottom">
+        <p>Contact us: <a href="warmthmnl@gmail.com">warmthmnl@gmail.com</a></p>
+        <p>Powered by <a href="#">Warmth Technologies</a></p>
+    </div>
+</footer>
+
+    <!-- Chatbot Section -->
+<div class="chatbot-container">
+    <div class="chat-header">
+        <span>Seereach</span>
+        <button class="close-btn">&times;</button>
+    </div>
+    <div class="chat-body">
+        <div class="chat-messages"></div>
+    </div>
+    <div class="suggested-questions">
+        <p>Suggested Questions:</p>
+        <div class="suggested-buttons">
+            <button class="suggested-btn">What products do you have?</button>
+            <button class="suggested-btn">How much is shipping?</button>
+            <button class="suggested-btn">Where is your shop located?</button>
+            <button class="suggested-btn">How to place an order?</button>
+        </div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+<button id="chat-toggle">
+    <i class="fa-regular fa-comment"></i>
+</button>
+
+        <script>
+
+     // Get the mobile menu button and the menu itself
+     const mobileMenuButton = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Toggle the mobile menu when the button is clicked
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+   
+    </script>
+    <script>
+    </script>
+    </body>
+
+        <!-- Linking Swiper script -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+        <!-- Linking custom script -->
+        <script src="script.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        
+        <!-- Include AOS animation library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
+    </body>
+    </html>
